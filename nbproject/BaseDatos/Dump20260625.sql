@@ -55,3 +55,30 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-06-25 20:28:54
+-- ==========================================
+-- ESTRUCTURA PARA LA TABLA `servicios`
+-- ==========================================
+
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- ==========================================
+-- ESTRUCTURA PARA LA TABLA `personal`
+-- ==========================================
+
+CREATE TABLE IF NOT EXISTS `personal` (
+  `dni` varchar(8) NOT NULL,
+  `nombre_completo` varchar(150) NOT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `cargo` enum('Veterinario','Técnico') NOT NULL,
+  `especialidad` varchar(100) DEFAULT NULL,
+  `fecha_ingreso` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`dni`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
