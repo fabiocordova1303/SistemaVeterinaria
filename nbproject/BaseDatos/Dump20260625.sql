@@ -55,10 +55,6 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-06-25 20:28:54
--- ==========================================
--- ESTRUCTURA PARA LA TABLA `servicios`
--- ==========================================
-
 CREATE TABLE IF NOT EXISTS `servicios` (
   `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
@@ -67,11 +63,6 @@ CREATE TABLE IF NOT EXISTS `servicios` (
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_servicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- ==========================================
--- ESTRUCTURA PARA LA TABLA `personal`
--- ==========================================
 
 CREATE TABLE IF NOT EXISTS `personal` (
   `dni` varchar(8) NOT NULL,
