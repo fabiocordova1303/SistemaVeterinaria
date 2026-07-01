@@ -1,7 +1,7 @@
 package Vista;
 
 import javax.swing.JOptionPane;
-
+import Modelo.*;
 public class frmcliente extends javax.swing.JFrame {
 
     Controlador.ClienteDAO clienteDao = new Controlador.ClienteDAO();
