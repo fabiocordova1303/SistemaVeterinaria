@@ -74,12 +74,23 @@ CREATE TABLE IF NOT EXISTS `personal` (
   PRIMARY KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `clientes` (
-  `dni` varchar(15) NOT NULL,
-  `nombres` varchar(100) NOT NULL,
-  `apellidos` varchar(100) NOT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `correo` varchar(100) DEFAULT NULL,
-  `fecha_reg` date DEFAULT NULL,
-  PRIMARY KEY (`dni`)
+
+CREATE TABLE IF NOT EXISTS `citas` (
+  `id_cita` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,                   -- Requerimiento 10 (Filtro)
+  `hora` time NOT NULL,
+  `nombre_mascota` varchar(100) NOT NULL,  -- Nombre directo de la mascota
+  `id_servicio` int(11) NOT NULL,          -- Se conecta con la tabla de tus compañeros
+  `dni_personal` varchar(8) NOT NULL,      -- Se conecta con el DNI de la tabla de tus compañeros
+  `estado` enum('Programada','Atendida','Cancelada') NOT NULL DEFAULT 'Programada', -- Requerimiento 9
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_cita`),
+  
+  CONSTRAINT `fk_cita_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicios` (`id_servicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_cita_personal` FOREIGN KEY (`dni_personal`) REFERENCES `personal` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `citas` (`fecha`, `hora`, `nombre_mascota`, `id_servicio`, `dni_personal`, `estado`) VALUES
+('2026-07-10', '10:00:00', 'Firulais', 1, '2', 'Programada'),
+('2026-07-12', '15:30:00', 'Luna', 1, '2', 'Programada');
