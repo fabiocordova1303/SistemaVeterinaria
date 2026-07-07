@@ -123,3 +123,4 @@ CREATE TABLE IF NOT EXISTS `citas` (
 INSERT INTO `citas` (`fecha`, `hora`, `nombre_mascota`, `id_servicio`, `dni_personal`, `estado`) VALUES
 ('2026-07-10', '10:00:00', 'Firulais', 1, '2', 'Programada'),
 ('2026-07-12', '15:30:00', 'Luna', 1, '2', 'Programada');
+
