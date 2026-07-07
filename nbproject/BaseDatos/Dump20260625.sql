@@ -55,6 +55,35 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-06-25 20:28:54
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    dni VARCHAR(8) NOT NULL UNIQUE,
+    nombres VARCHAR(80) NOT NULL,
+    apellidos VARCHAR(80) NOT NULL,
+    telefono VARCHAR(15),
+    direccion VARCHAR(150),
+    correo VARCHAR(100),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE mascotas (
+    id_mascota INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    nombre VARCHAR(80) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    raza VARCHAR(80),
+    sexo ENUM('Macho','Hembra'),
+    edad INT,
+    peso DECIMAL(5,2),
+    talla VARCHAR(50),
+
+    CONSTRAINT fk_mascota_cliente
+        FOREIGN KEY(id_cliente)
+        REFERENCES clientes(id_cliente)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+----------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `servicios` (
   `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
