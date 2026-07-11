@@ -3,7 +3,7 @@ package Modelo;
 import java.sql.Timestamp;
 
 public class Cliente2 {
-    // Atributos correspondientes a las columnas de la tabla 'clientes'
+   
     private int idCliente;
     private String dni;
     private String nombres;
@@ -11,13 +11,13 @@ public class Cliente2 {
     private String telefono;
     private String direccion;
     private String correo;
-    private Timestamp fechaRegistro; // Mapeado para el campo TIMESTAMP de la BD
+    private Timestamp fechaRegistro; 
 
-    // Constructor vacío
+  
     public Cliente() {
     }
 
-    // Constructor con todos los parámetros
+    
     public Cliente(int idCliente, String dni, String nombres, String apellidos, String telefono, String direccion, String correo, Timestamp fechaRegistro) {
         this.idCliente = idCliente;
         this.dni = dni;
@@ -29,7 +29,7 @@ public class Cliente2 {
         this.fechaRegistro = fechaRegistro;
     }
 
-    // Métodos Getter y Setter
+
     public int getIdCliente() {
         return idCliente;
     }
