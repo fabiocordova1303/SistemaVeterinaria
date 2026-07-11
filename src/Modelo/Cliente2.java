@@ -2,7 +2,7 @@ package Modelo;
 
 import java.sql.Timestamp;
 
-public class Cliente {
+public class Cliente2 {
     // Atributos correspondientes a las columnas de la tabla 'clientes'
     private int idCliente;
     private String dni;
