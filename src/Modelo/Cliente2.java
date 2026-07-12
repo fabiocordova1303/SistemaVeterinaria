@@ -3,7 +3,7 @@ package Modelo;
 import java.sql.Timestamp;
 
 public class Cliente2 {
-   
+
     private int idCliente;
     private String dni;
     private String nombres;
@@ -11,14 +11,16 @@ public class Cliente2 {
     private String telefono;
     private String direccion;
     private String correo;
-    private Timestamp fechaRegistro; 
+    private Timestamp fechaRegistro;
 
-  
-    public Cliente() {
+    // Constructor vacío
+    public Cliente2() {
     }
 
-    
-    public Cliente(int idCliente, String dni, String nombres, String apellidos, String telefono, String direccion, String correo, Timestamp fechaRegistro) {
+    // Constructor con parámetros
+    public Cliente2(int idCliente, String dni, String nombres, String apellidos,
+                    String telefono, String direccion, String correo,
+                    Timestamp fechaRegistro) {
         this.idCliente = idCliente;
         this.dni = dni;
         this.nombres = nombres;
@@ -28,7 +30,6 @@ public class Cliente2 {
         this.correo = correo;
         this.fechaRegistro = fechaRegistro;
     }
-
 
     public int getIdCliente() {
         return idCliente;
